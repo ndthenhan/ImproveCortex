@@ -26,7 +26,7 @@
             "monitor reset halt"
         ],
         "postLaunchCommands": [
-            "monitor reset halt"
+            "monitor reset run"
         ],
         "swoConfig": {
             "enabled": true,
