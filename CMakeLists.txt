@@ -37,7 +37,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 # Add App modules
-add_subdirectory(App)
+#add_subdirectory(App)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -47,13 +47,14 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    
+    Core/Src/itm.c
+    Core/Src/retarget.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-    
+    Core/Inc
 )
 
 # Add project symbols (macros)
@@ -65,10 +66,10 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 
 # Add linked libraries
-target_link_libraries(app PUBLIC stm32cubemx)
+#target_link_libraries(app PUBLIC stm32cubemx)
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-    app
+    #app
     # Add user defined libraries
     
 )

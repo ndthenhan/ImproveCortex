@@ -5,19 +5,20 @@
             "name": "Nucleo-F439ZI (Stable OpenOCD + ITM)",
             "type": "cortex-debug",
             "request": "launch",
-            "servertype": "openocd",
+            "servertype": "openocd", 
 
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
+            "interface": "swd",
 
-        "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
-        "configFiles": [
-            "interface/stlink.cfg",
-            "target/stm32f4x.cfg"
-        ],
+            "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg"
+            ],
 
-        "gdbTarget": "localhost:3333",
+        "gdbTarget": "remote localhost:3333",
         "svdFile": "${workspaceFolder}/STM32F439.svd",
         "runToEntryPoint": "main",
 
@@ -26,7 +27,7 @@
             "monitor reset halt"
         ],
         "postLaunchCommands": [
-            "monitor reset run"
+            "monitor reset run" 
         ],
         "swoConfig": {
             "enabled": true,

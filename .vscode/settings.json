@@ -1,7 +1,7 @@
 {
     "cmake.buildDirectory": "build",
     "cmake.configureOnOpen": true,
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    //"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
     "cmake.cmakePath": "cube-cmake",
     "cmake.configureArgs": [
