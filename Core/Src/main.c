@@ -115,6 +115,10 @@ int main(void)
     HAL_Delay(100);
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
+    HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
+    HAL_Delay(100);
+    HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
+    HAL_Delay(100);
     printf("Hello, World! 666\r\n");
     /* USER CODE END WHILE */
 
