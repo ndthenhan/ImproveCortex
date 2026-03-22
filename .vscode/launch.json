@@ -10,7 +10,7 @@
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
-            "interface": "swd",
+            "interface": "swd", // SWD is the default, but it's good to be explicit
 
             "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
             "configFiles": [
@@ -18,7 +18,7 @@
                 "target/stm32f4x.cfg"
             ],
 
-        "gdbTarget": "remote localhost:3333",
+        "gdbTarget": "remote localhost:3333", // may not need this if openocd is configured to use the default port
         "svdFile": "${workspaceFolder}/STM32F439.svd",
         "runToEntryPoint": "main",
 

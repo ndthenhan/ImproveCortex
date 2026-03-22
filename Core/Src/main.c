@@ -95,13 +95,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  DWT_Init();
-  ITM_Init();
+  //DWT_Init();
+  //ITM_Init(); //even dont need this, printf works without it
   printf("Hello, World!\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int n = 0;
   while (1)
   { 
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
@@ -116,7 +117,12 @@ int main(void)
     HAL_Delay(100);
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
-    printf("Hello, World! 1666\r\n");
+    //int n = DWT->CYCCNT;
+    printf("Hello, World! %d\r\n", n);
+    n++;
+    if (n==10) {
+      n = 0;
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
