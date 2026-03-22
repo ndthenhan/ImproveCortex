@@ -99,7 +99,7 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   //DWT_Init();
-  ITM_Init();
+  //ITM_Init();
   printf("Hello, World!\r\n");
   /* USER CODE END 2 */
 

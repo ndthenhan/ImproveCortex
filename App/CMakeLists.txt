@@ -1,5 +1,4 @@
 add_library(app
-    itm.c
     retarget.c
 )
 
