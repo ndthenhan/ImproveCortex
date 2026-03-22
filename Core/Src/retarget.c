@@ -1,5 +1,5 @@
 #include "stm32f4xx.h"
-#include "itm.h"
+//#include "itm.h"
 #include <stdio.h>
 
 int _write(int file, char *ptr, int len)

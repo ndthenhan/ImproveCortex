@@ -118,7 +118,7 @@ int main(void)
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
     //int n = DWT->CYCCNT;
-    printf("Hello, World! %d\r\n", n);
+    printf("Hello, ITM print success! %d\r\n", n);
     n++;
     if (n==10) {
       n = 0;
