@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "itm.h"
+//#include "itm.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -105,6 +105,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int n = 0;
   while (1)
   { 
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
@@ -119,7 +120,12 @@ int main(void)
     HAL_Delay(100);
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
-    printf("Hello, World! 666\r\n");
+    n++;
+    
+    printf("Hello, World! %d\r\n", n);
+    if (n==9) {
+    n=0;
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
