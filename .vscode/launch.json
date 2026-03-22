@@ -6,11 +6,10 @@
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "openocd",
-
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
-
+            "interface": "swd",
         "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
         "configFiles": [
             "interface/stlink.cfg",
@@ -31,13 +30,14 @@
         "swoConfig": {
             "enabled": true,
             "cpuFrequency": 168000000,
-            "swoFrequency": 2000000,
+            "swoFrequency": 1800000,
             "source": "probe",
             "decoders": [
                 {
                         "type": "console",
                         "port": 0,
-                        "label": "ITM"
+                        "label": "ITM",
+                        "encoding": "ascii"
                     }
                 ]
             }
