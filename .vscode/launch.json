@@ -9,35 +9,32 @@
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
-            "interface": "swd",
-        "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
-        "configFiles": [
-            "interface/stlink.cfg",
-            "target/stm32f4x.cfg"
-        ],
-
-        "gdbTarget": "localhost:3333",
-        "svdFile": "${workspaceFolder}/STM32F439.svd",
-        "runToEntryPoint": "main",
-
-        "showDevDebugOutput": "raw",
-        "preLaunchCommands": [
-            "monitor reset halt"
-        ],
-        "postLaunchCommands": [
-            "monitor reset run"
-        ],
-        "swoConfig": {
-            "enabled": true,
-            "cpuFrequency": 168000000,
-            "swoFrequency": 1800000,
-            "source": "probe",
-            "decoders": [
-                {
+            //"interface": "swd", // default is SWD, can be omitted
+            //"serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            //"gdbTarget": "localhost:3333", // default is localhost:3333, can be omitted
+            "svdFile": "${workspaceFolder}/STM32F439.svd",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw",
+            "preLaunchCommands": [
+                "monitor reset halt",
+            ],
+            "postLaunchCommands": [
+                "monitor reset run"
+            ],
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 168000000,
+                "swoFrequency": 2000000,
+                "source": "probe",
+                "decoders": [
+                    {
                         "type": "console",
                         "port": 0,
                         "label": "ITM"
-                        
                     }
                 ]
             }
