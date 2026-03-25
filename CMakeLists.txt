@@ -37,7 +37,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 # Add randomapp modules
-add_subdirectory(randomapp)
+add_subdirectory(Randomapp)
 
 
 # Link directories setup
