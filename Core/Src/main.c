@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 //#include "itm.h"
 #include <stdio.h>
+#include "random.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -106,6 +107,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int n = 0;
+  //double m=0.0;
   while (1)
   { 
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
@@ -121,7 +123,10 @@ int main(void)
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
     n++;
+    printf("Random: %d\r\n", n);
     
+    printf("Mean: %f\r\n", 9.5);
+    printrandom(n);
     printf("Hello, World! %d\r\n", n);
     if (n==9) {
     n=0;

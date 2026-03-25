@@ -36,8 +36,9 @@ add_executable(${CMAKE_PROJECT_NAME})
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
-# Add App modules
-#add_subdirectory(App)
+# Add randomapp modules
+add_subdirectory(randomapp)
+
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -69,11 +70,12 @@ list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 #target_link_libraries(app PUBLIC stm32cubemx)
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-    #app
+    randomapp
+    m
     # Add user defined libraries
     
 )
 # Enable printf float support
 target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
-    "-u _printf_float"
+    -u _printf_float
 )
