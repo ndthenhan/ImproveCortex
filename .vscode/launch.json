@@ -34,9 +34,9 @@
                     {
                         "type": "console",
                         "port": 0,
-                        "label": "ITM"
+                        "label": "ITM"                        
                     }
-                ]
+                ]       
             }
         }
     ]
