@@ -10,7 +10,7 @@
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
             "interface": "swd",
-        "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
+        //"serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
         "configFiles": [
             "interface/stlink.cfg",
             "target/stm32f4x.cfg"
