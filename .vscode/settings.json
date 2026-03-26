@@ -18,5 +18,7 @@
         "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/*/bin/arm-none-eabi-g++*"
     ],
 
-    "cortex-debug.variableUseNaturalFormat": false
+    "cortex-debug.variableUseNaturalFormat": false,
+    //"cortex-debug.gdbPath": "gdb-multiarch",
+    //"cortex-debug.openocdPath": "openocd"
 }

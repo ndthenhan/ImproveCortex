@@ -12,7 +12,7 @@
             //"interface": "swd", // default is SWD, can be omitted
             //"serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
             "configFiles": [
-                "interface/stlink.cfg",
+                "interface/stlink-dap.cfg",
                 "target/stm32f4x.cfg"
             ],
             //"gdbTarget": "localhost:3333", // default is localhost:3333, can be omitted
@@ -24,6 +24,10 @@
             ],
             "postLaunchCommands": [
                 "monitor reset run"
+                //"monitor sleep 100",
+                //"monitor tpiu config internal - uart off 168000000 1800000",
+                //"monitor itm ports on",
+                //"resume"
             ],
             "swoConfig": {
                 "enabled": true,
@@ -34,9 +38,9 @@
                     {
                         "type": "console",
                         "port": 0,
-                        "label": "ITM"                        
+                        "label": "ITM"
                     }
-                ]       
+                ]
             }
         }
     ]
