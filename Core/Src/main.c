@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "itm.h"
+#include "itm.h"
 #include <stdio.h>
 #include "random.h"
 /* USER CODE END Includes */
@@ -92,7 +92,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  ITM_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
