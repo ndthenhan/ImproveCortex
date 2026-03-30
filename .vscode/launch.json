@@ -23,9 +23,11 @@
                 "monitor reset halt",
             ],
             "postLaunchCommands": [
-                "monitor reset run"
+                "monitor reset run",
+                //"monitor tpiu config internal swv_file 168000000 2000000",
+                //"monitor itm ports on"
                 //"monitor sleep 100",
-                //"monitor tpiu config internal - uart off 168000000 1800000",
+                //"monitor tpiu config internal - uart off 168000000 2000000",
                 //"monitor itm ports on",
                 //"resume"
             ],
