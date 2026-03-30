@@ -38,6 +38,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 add_subdirectory(cmake/stm32cubemx)
 # Add randomapp modules
 add_subdirectory(Randomapp)
+add_subdirectory(Itm)
 
 
 # Link directories setup
@@ -48,9 +49,9 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    Core/Src/itm.c
     #Core/Src/itm.c
-    App/PrintITM/retarget.c
+       #Core/Src/itm.c
+    Itm/Src/retarget.c
 )
 
 # Add include paths
@@ -71,6 +72,7 @@ list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 #target_link_libraries(app PUBLIC stm32cubemx)
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
+    itmprintf
     randomapp
     m
     # Add user defined libraries

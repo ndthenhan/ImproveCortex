@@ -92,7 +92,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  ITM_Init();
+  //ITM_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -100,7 +100,7 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   //DWT_Init();
-  //ITM_Init();
+  ITM_Init();
   printf("Hello, World!\r\n");
   /* USER CODE END 2 */
 
