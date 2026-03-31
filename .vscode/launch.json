@@ -29,6 +29,8 @@
                 //"monitor sleep 100",
                 //"monitor tpiu config internal - uart off 168000000 2000000",
                 //"monitor itm ports on",
+                //"monitor mww 0xE0000E00 1",
+                "monitor mww 0xE0042004 0x20",
                 //"resume"
             ],
             "swoConfig": {
