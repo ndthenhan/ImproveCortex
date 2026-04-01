@@ -10,7 +10,7 @@
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
             "device": "STM32F439ZI",
             //"interface": "swd", // default is SWD, can be omitted
-            //"serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
+            "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
             "configFiles": [
                 "interface/stlink-dap.cfg",
                 "target/stm32f4x.cfg"
