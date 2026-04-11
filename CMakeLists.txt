@@ -80,5 +80,12 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 )
 # Enable printf float support
 target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
-    -u _printf_float
+    -T "${CMAKE_SOURCE_DIR}/STM32F439XX_FLASH_ImproveCortex.ld"  # Point to your custom file    
+    -u _printf_float # Enable floating-point support in printf
 )
+
+add_definitions(
+    -DUSER_VECT_TAB_ADDRESS # Define the vector table address for the application
+    -DVECT_TAB_OFFSET=0x10000 # Define the vector table offset for the application
+) # Define the vector table offset for the application
+

@@ -2,7 +2,6 @@
     "cmake.buildDirectory": "build",
     "cmake.configureOnOpen": true,
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-
     "cmake.cmakePath": "cube-cmake",
     "cmake.configureArgs": [
         "-DCMAKE_COMMAND=cube-cmake"
@@ -10,15 +9,16 @@
     "cmake.preferredGenerators": [
         "Ninja"
     ],
-
     "stm32cube-ide-clangd.path": "cube",
     "stm32cube-ide-clangd.arguments": [
         "starm-clangd",
         "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/*/bin/arm-none-eabi-gcc*",
         "--query-driver=${env:CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/*/bin/arm-none-eabi-g++*"
     ],
-
     "cortex-debug.variableUseNaturalFormat": false,
     //"cortex-debug.gdbPath": "gdb-multiarch",
     //"cortex-debug.openocdPath": "openocd"
+    //"cortex-debug.gdbPath": "arm-none-eabi-gdb",
+    //"cortex-debug.armToolchainPath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe",
+    //"cortex-debug.gdbTimeout": 15
 }

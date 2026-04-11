@@ -8,18 +8,26 @@
             "servertype": "openocd",
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
+            
             "device": "STM32F439ZI",
             //"interface": "swd", // default is SWD, can be omitted
-            "serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
+            //"serverpath": "D:/STM32/xpacks/@xpack-dev-tools/openocd/.content/bin/openocd.exe", // if path not set
             "configFiles": [
-                "interface/stlink-dap.cfg",
+                "interface/stlink.cfg",
                 "target/stm32f4x.cfg"
             ],
             //"gdbTarget": "localhost:3333", // default is localhost:3333, can be omitted
             "svdFile": "${workspaceFolder}/STM32F439.svd",
             "runToEntryPoint": "main",
+            //"gdbTarget": "127.0.0.1:50001",
+            // "connectUnderReset" is now often handled via serverArgs above, 
+            // but if you want the checkbox version, try:
+            //"overrideResetCommands": [
+            //    "monitor reset halt"
+            //],
             "showDevDebugOutput": "raw",
             "preLaunchCommands": [
+                //"monitor sleep 200",
                 "monitor reset halt",
             ],
             "postLaunchCommands": [

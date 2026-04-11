@@ -9,7 +9,7 @@ a debugger like CubeIDE or Segger Ozone.
 ######################################*/
 
 
-/* int _write(int file, char *ptr, int len)
+int _write(int file, char *ptr, int len)
 {
     //__BKPT(0);
     
@@ -18,7 +18,7 @@ a debugger like CubeIDE or Segger Ozone.
     return len;
     
     
-} */
+}
 
 
 /*  #########################
@@ -84,7 +84,7 @@ is active. If you want your code to run
 unplugged from the PC, use this check instead 
 ######################################*/
 
-int _write(int file, char *ptr, int len) {
+/* int _write(int file, char *ptr, int len) {
     // Check if ITM is actually enabled locally (TCR) and Port 0 is open
     // This allows the program to run even if no debugger is attached.
     if ((ITM->TCR & ITM_TCR_ITMENA_Msk) && (ITM->TER & 1UL)) {
@@ -99,4 +99,4 @@ int _write(int file, char *ptr, int len) {
         }
     }
     return len;
-}
+} */

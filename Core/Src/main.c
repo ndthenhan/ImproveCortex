@@ -76,7 +76,10 @@ static void MX_USART3_UART_Init(void);
 int main(void) {
 
   /* USER CODE BEGIN 1 */
-
+ // SCB->VTOR = 0x08010000; // Relocate Vector Table to that of the Application
+  //__DSB(); 
+  // Data Synchronisation Barrier, ensure all following instructions
+           // use new VT
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -87,6 +90,7 @@ int main(void) {
 
   /* USER CODE BEGIN Init */
   // ITM_Init();
+  //__enable_irq();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -100,21 +104,18 @@ int main(void) {
   MX_GPIO_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  
-  // Ensure PB3 is set to AF0 (Trace SWO)
-/*Even if CubeMX generates the code, it's safer to f
-orce it at the start of your ITM setup to ensure no other 
-peripheral (like an SPI) has "hijacked" the pin: */
 
-RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
-GPIOB->MODER   = (GPIOB->MODER   & ~(3UL << 6)) | (2UL << 6); // AF Mode
-GPIOB->AFR[0] &= ~(0xFUL << 12); // AF0 for Pin 3
-GPIOB->OSPEEDR |= (3UL << 6);    // Max speed for 168MHz core
-/* #####################################*/
-  
-  
-  
-  
+  // Ensure PB3 is set to AF0 (Trace SWO)
+  /*Even if CubeMX generates the code, it's safer to f
+  orce it at the start of your ITM setup to ensure no other
+  peripheral (like an SPI) has "hijacked" the pin: */
+
+  RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
+  GPIOB->MODER = (GPIOB->MODER & ~(3UL << 6)) | (2UL << 6); // AF Mode
+  GPIOB->AFR[0] &= ~(0xFUL << 12);                          // AF0 for Pin 3
+  GPIOB->OSPEEDR |= (3UL << 6); // Max speed for 168MHz core
+                                /* #####################################*/
+
   // DWT_Init();
 
   /* if ((CoreDebug->DHCSR & CoreDebug_DHCSR_C_DEBUGEN_Msk) &&
@@ -126,7 +127,7 @@ GPIOB->OSPEEDR |= (3UL << 6);    // Max speed for 168MHz core
   } */
   ITM_Init();
   // ITM_Init_Passive();
-  //ITM_Init_Stable();
+  // ITM_Init_Stable();
   // DWT_Init();
   printf("Hello, World!\r\n");
   /* USER CODE END 2 */
