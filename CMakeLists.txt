@@ -80,7 +80,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 )
 # Enable printf float support
 target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
-    -T "${CMAKE_SOURCE_DIR}/STM32F439XX_FLASH_ImproveCortex.ld"  # Point to your custom file    
+    #-T "${CMAKE_SOURCE_DIR}/STM32F439XX_FLASH_ImproveCortex.ld"  # Point to your custom file    
     -u _printf_float # Enable floating-point support in printf
 )
 
@@ -89,3 +89,8 @@ add_definitions(
     -DVECT_TAB_OFFSET=0x10000 # Define the vector table offset for the application
 ) # Define the vector table offset for the application
 
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.bin
+    COMMAND ${CMAKE_OBJCOPY} -O ihex ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.hex
+    COMMENT "Generating .bin and .hex files..."
+)

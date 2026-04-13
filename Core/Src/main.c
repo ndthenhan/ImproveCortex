@@ -6,7 +6,7 @@
  ******************************************************************************
  * @attention
  *
- * Copyright (c) 2026 STMicroelectronics.
+ * Copyright (c) 10026 STMicroelectronics.
  * All rights reserved.
  *
  * This software is licensed under terms that can be found in the LICENSE file
@@ -76,10 +76,11 @@ static void MX_USART3_UART_Init(void);
 int main(void) {
 
   /* USER CODE BEGIN 1 */
- // SCB->VTOR = 0x08010000; // Relocate Vector Table to that of the Application
-  //__DSB(); 
+  SCB->VTOR = 0x08010000; // Relocate Vector Table to that of the Application
+  __DSB();
+  __enable_irq();
   // Data Synchronisation Barrier, ensure all following instructions
-           // use new VT
+  // use new VT
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -89,12 +90,17 @@ int main(void) {
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+ 
+  // HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0); 
+__set_PRIMASK(0); 
+  
   // ITM_Init();
   //__enable_irq();
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
+  //HAL_Delay(100);
 
   /* USER CODE BEGIN SysInit */
   // ITM_Init();
@@ -136,21 +142,28 @@ int main(void) {
   /* USER CODE BEGIN WHILE */
   int n = 0;
   // double m=0.0;
+  //__enable_irq();
   while (1) {
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
     HAL_Delay(100);
+
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
+
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
     HAL_Delay(100);
+
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
+
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
     HAL_Delay(100);
+    
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
+    
     n++;
-    printf("Random: %d\r\n", n);
+    printf("Random kkkaaaaa: %d\r\n", n);
 
     printf("Mean: %f\r\n", 9.5);
     printrandom(n);
@@ -222,7 +235,7 @@ static void MX_USART3_UART_Init(void) {
 
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
-  huart3.Init.BaudRate = 115200;
+  huart3.Init.BaudRate = 1151000;
   huart3.Init.WordLength = UART_WORDLENGTH_8B;
   huart3.Init.StopBits = UART_STOPBITS_1;
   huart3.Init.Parity = UART_PARITY_NONE;
