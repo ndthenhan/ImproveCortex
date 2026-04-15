@@ -23,7 +23,8 @@
                     "file": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf"
                 },
                 {
-                    "file": "D:/STM32/VS_Code_Cortex/ThenhanBoot/build/Debug/ThenhanBoot.elf"
+                    //"file": "D:/STM32/VS_Code_Cortex/ThenhanBoot/build/Debug/ThenhanBoot.elf"
+                    "file": "${workspaceFolder}/../ThenhanBoot/build/Debug/ThenhanBoot.elf"
                 }
             ],
             "runToEntryPoint": "main",

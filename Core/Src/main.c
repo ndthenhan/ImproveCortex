@@ -100,7 +100,7 @@ __set_PRIMASK(0);
 
   /* Configure the system clock */
   SystemClock_Config();
-  //HAL_Delay(500);
+  //HAL_Delay(100);
 
   /* USER CODE BEGIN SysInit */
   // ITM_Init();
@@ -145,22 +145,22 @@ __set_PRIMASK(0);
   //__enable_irq();
   while (1) {
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
-    HAL_Delay(500);
+    HAL_Delay(100);
 
     HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_RESET);
-    HAL_Delay(500);
+    HAL_Delay(100);
 
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
-    HAL_Delay(500);
+    HAL_Delay(100);
 
     HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
-    HAL_Delay(500);
+    HAL_Delay(100);
 
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-    HAL_Delay(500);
+    HAL_Delay(100);
     
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-    HAL_Delay(500);
+    HAL_Delay(100);
     
     n++;
     printf("Random kkkaaaaa: %d\r\n", n);
