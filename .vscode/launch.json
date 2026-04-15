@@ -18,7 +18,6 @@
             //"gdbTarget": "localhost:3333", // default is localhost:3333, can be omitted
             "svdFile": "${workspaceFolder}/STM32F439.svd",
             //sets the Application as the primary executable but tells the debugger to also know about the Bootloader's symbols.
-            
             "symbolFiles": [
                 {
                     "file": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf"
@@ -27,7 +26,6 @@
                     "file": "D:/STM32/VS_Code_Cortex/ThenhanBoot/build/Debug/ThenhanBoot.elf"
                 }
             ],
-
             "runToEntryPoint": "main",
             //"gdbTarget": "127.0.0.1:50001",
             // "connectUnderReset" is now often handled via serverArgs above, 
