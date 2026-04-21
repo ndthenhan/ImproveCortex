@@ -90,17 +90,17 @@ int main(void) {
   HAL_Init();
 
   /* USER CODE BEGIN Init */
- 
-  // HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0); 
-__set_PRIMASK(0); 
-  
+
+  // HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+  __set_PRIMASK(0);
+
   // ITM_Init();
   //__enable_irq();
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
-  //HAL_Delay(100);
+  // HAL_Delay(100);
 
   /* USER CODE BEGIN SysInit */
   // ITM_Init();
@@ -122,7 +122,7 @@ __set_PRIMASK(0);
   GPIOB->OSPEEDR |= (3UL << 6); // Max speed for 168MHz core
                                 /* #####################################*/
 
-  // DWT_Init();
+  
 
   /* if ((CoreDebug->DHCSR & CoreDebug_DHCSR_C_DEBUGEN_Msk) &&
       (CoreDebug->DEMCR & CoreDebug_DEMCR_TRCENA_Msk)) {
@@ -158,10 +158,10 @@ __set_PRIMASK(0);
 
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
     HAL_Delay(100);
-    
+
     HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
-    
+
     n++;
     printf("Random kkkaaaaa: %d\r\n", n);
 
